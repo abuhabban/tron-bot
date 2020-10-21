@@ -481,7 +481,7 @@ def main():
     # Run the TRON bot
 
     # We create EventHandler and we transfer a token.
-    updater = Updater(constants.BOT_TOKEN)
+    updater = Updater("1378171996:AAEaihHekAb-We57_jIrHB0SnE1Nm-BDTiA",use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -537,7 +537,11 @@ def main():
     dp.add_error_handler(error)
 
     # Run the bot
-    updater.start_polling()
+    
+       updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+       updater.bot.setWebhook('https://working-bot-python.herokuapp.com/' + TOKEN)
 
     # Run the bot until the you presses Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
